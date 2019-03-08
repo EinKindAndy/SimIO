@@ -102,7 +102,7 @@ dy / dx =
         layers);
 	uint dp_num = trainer->design_param_num();
 	cout << endl << "It's " << dp_num << " design parameters" << endl;
-	uint sample_num = 50;
+	uint sample_num = 100;
 	vector<VVAL> xs(sample_num);
 	vector<VVAL> fxs(sample_num);
 	cout << "samples" << endl;
@@ -120,8 +120,8 @@ dy / dx =
 		dp_num,
 		dp_num * 50,
 		20,
-		VVAL::Ones(dp_num) * 1,
-		-VVAL::Ones(dp_num) * 1,
+		VVAL::Ones(dp_num) * 0.5,
+		-VVAL::Ones(dp_num) * 0.5,
 		100,
 		-100,
 		trainer);

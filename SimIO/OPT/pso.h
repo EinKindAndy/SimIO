@@ -63,16 +63,16 @@ namespace OPT {
     private:
         VVAL get_rand_dp() {
             VVAL tmp = (VVAL::Random(this->m_dp_size) + VVAL::Ones(this->m_dp_size)) * 0.5;
-            VVAL tmp2 = this->m_dp_upper - this->m_dp_lower;
-            VVAL tmp3 = tmp.array() * tmp2.array();
-            return tmp + tmp3;
+            VVAL tmp_ = tmp.array() * (this->m_dp_upper - this->m_dp_lower).array();
+            return (this->m_dp_lower) + tmp_;
         }
         void init() {
-            cout << "init..." << endl;
+            //cout << "init..." << endl;
+            double k = 0.5;
             for(auto i = 0; i < this->m_pop_size; i++) {
                 MovingPoint* mp = new MovingPoint;
                 mp->cur_pos = get_rand_dp();
-                mp->cur_vel = VVAL::Random(this->m_dp_size).array() * (this->m_dp_upper - this->m_dp_lower).array();
+                mp->cur_vel = VVAL::Random(this->m_dp_size).array() * ((this->m_dp_upper - this->m_dp_lower) * k).array();
                 mp->local_best_pos = get_rand_dp();
                 m_particles[i] = mp;
                 //cout << "cur_pos\n" << mp->cur_pos << endl;
