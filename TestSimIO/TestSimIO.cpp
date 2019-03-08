@@ -139,54 +139,53 @@ dy / dx =
 It's 124 design parameters
 samples
 to run the optimizer
-init...
 
-Opt step 1 current loss is 1.1989e+08
+Opt step 1 current loss is 82.2338
 
-Opt step 2 current loss is 753.181
+Opt step 2 current loss is 47.8032
 
-Opt step 3 current loss is 753.181
+Opt step 3 current loss is 10.9812
 
-Opt step 4 current loss is 93.7562
+Opt step 4 current loss is 10.9812
 
-Opt step 5 current loss is 93.7562
+Opt step 5 current loss is 10.9812
 
-Opt step 6 current loss is 93.7562
+Opt step 6 current loss is 10.947
 
-Opt step 7 current loss is 91.4352
+Opt step 7 current loss is 9.16463
 
-Opt step 8 current loss is 71.0628
+Opt step 8 current loss is 8.70963
 
-Opt step 9 current loss is 26.8756
+Opt step 9 current loss is 8.58826
 
-Opt step 10 current loss is 26.8756
+Opt step 10 current loss is 7.64072
 
-Opt step 11 current loss is 26.8756
+Opt step 11 current loss is 6.81796
 
-Opt step 12 current loss is 26.8756
+Opt step 12 current loss is 6.55403
 
-Opt step 13 current loss is 26.8756
+Opt step 13 current loss is 6.38224
 
-Opt step 14 current loss is 21.3573
+Opt step 14 current loss is 6.38224
 
-Opt step 15 current loss is 21.3573
+Opt step 15 current loss is 6.38224
 
-Opt step 16 current loss is 21.3573
+Opt step 16 current loss is 6.22167
 
-Opt step 17 current loss is 17.8078
+Opt step 17 current loss is 5.7831
 
-Opt step 18 current loss is 17.8078
+Opt step 18 current loss is 5.7831
 
-Opt step 19 current loss is 17.8078
+Opt step 19 current loss is 5.72473
 
-Opt step 20 current loss is 17.8078
-current the loss is 17.8078
+Opt step 20 current loss is 5.56167
+current the loss is 5.56167
 test x:
 1
 5
 9
 fx is
-13.6244
+9.98828
 */
 	return 0;
 }
