@@ -3,6 +3,7 @@ It' a tiny portable pure C++11 project to test some new ideas about reinforcemen
 
 TestSimIO.cpp contains some examples; and this project can be easily configured by cmake.
 ```
+
 #include <iostream>
 #include "../SimIO/cg"
 #include "../SimIO/ann"
@@ -109,7 +110,7 @@ dy / dx =
 	uint sample_num = 100;
 	vector<VVAL> xs(sample_num);
 	vector<VVAL> fxs(sample_num);
-	cout << "samples" << endl;
+	//cout << "samples" << endl;
 	for(auto i = 0; i < sample_num; i++) {
 		xs[i] = VVAL::Random(3) * 10;
 		//cout << "x" << i+1 << endl << xs[i] << endl;
@@ -122,10 +123,10 @@ dy / dx =
 	using namespace SIMIO::OPT;
 	PSO optimizer(
 		dp_num,
-		dp_num * 50,
-		20,
-		VVAL::Ones(dp_num) * 0.5,
-		-VVAL::Ones(dp_num) * 0.5,
+		dp_num * 5,
+		30,
+		VVAL::Ones(dp_num) * 0.95,
+		-VVAL::Ones(dp_num) * 0.95,
 		100,
 		-100,
 		trainer);
@@ -141,59 +142,78 @@ dy / dx =
 	delete trainer;
 /* part III:
 It's 124 design parameters
-samples
 to run the optimizer
 
-Opt step 1 current loss is 82.2338
+Opt step 1 current loss is 14.8739
 
-Opt step 2 current loss is 47.8032
+Opt step 2 current loss is 14.8739
 
-Opt step 3 current loss is 10.9812
+Opt step 3 current loss is 14.8739
 
-Opt step 4 current loss is 10.9812
+Opt step 4 current loss is 14.8739
 
-Opt step 5 current loss is 10.9812
+Opt step 5 current loss is 13.3172
 
-Opt step 6 current loss is 10.947
+Opt step 6 current loss is 13.3172
 
-Opt step 7 current loss is 9.16463
+Opt step 7 current loss is 12.6161
 
-Opt step 8 current loss is 8.70963
+Opt step 8 current loss is 10.6965
 
-Opt step 9 current loss is 8.58826
+Opt step 9 current loss is 10.6965
 
-Opt step 10 current loss is 7.64072
+Opt step 10 current loss is 10.6965
 
-Opt step 11 current loss is 6.81796
+Opt step 11 current loss is 10.6965
 
-Opt step 12 current loss is 6.55403
+Opt step 12 current loss is 8.15622
 
-Opt step 13 current loss is 6.38224
+Opt step 13 current loss is 8.15622
 
-Opt step 14 current loss is 6.38224
+Opt step 14 current loss is 8.15622
 
-Opt step 15 current loss is 6.38224
+Opt step 15 current loss is 8.15622
 
-Opt step 16 current loss is 6.22167
+Opt step 16 current loss is 8.03594
 
-Opt step 17 current loss is 5.7831
+Opt step 17 current loss is 8.02527
 
-Opt step 18 current loss is 5.7831
+Opt step 18 current loss is 7.66244
 
-Opt step 19 current loss is 5.72473
+Opt step 19 current loss is 7.65518
 
-Opt step 20 current loss is 5.56167
-current the loss is 5.56167
+Opt step 20 current loss is 7.65518
+
+Opt step 21 current loss is 7.29641
+
+Opt step 22 current loss is 7.2839
+
+Opt step 23 current loss is 7.11302
+
+Opt step 24 current loss is 7.11302
+
+Opt step 25 current loss is 6.55475
+
+Opt step 26 current loss is 6.55475
+
+Opt step 27 current loss is 6.55475
+
+Opt step 28 current loss is 6.46948
+
+Opt step 29 current loss is 6.46948
+
+Opt step 30 current loss is 6.46948
+current the loss is 6.46948
 test x:
 1
 5
 9
 fx is
-9.98828
+11.2304
+
 */
 	return 0;
 }
-
 
 ```
 
