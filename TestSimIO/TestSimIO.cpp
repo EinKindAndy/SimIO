@@ -116,7 +116,8 @@ dy / dx =
 
 	trainer->set_sample(xs, fxs);
 	using namespace SIMIO::OPT;
-	PSO optimizer(
+	//*/
+	PSO pso(
 		dp_num,
 		dp_num * 5,
 		30,
@@ -126,14 +127,36 @@ dy / dx =
 		-100,
 		trainer);
 	cout << "to run the optimizer" << endl;
-	optimizer.run_opt();
-	cout << "current the loss is " << optimizer.get_opt_obj() << endl;
-	//cout << "dp is \n" << optimizer.get_opt_dp() << endl;
-	trainer->update_coefficients(optimizer.get_opt_dp());
+	pso.run_opt();
+	cout << "current the loss is " << pso.get_opt_obj() << endl;
+	cout << "dp is \n" << pso.get_opt_dp() << endl;
+	trainer->update_coefficients(pso.get_opt_dp());
 	VVAL test_x(3);
 	test_x << 1, 5, 9;
 	cout << "test x:\n" << test_x << endl;
 	cout << "fx is\n" << trainer->feed_test(test_x) << endl;
+	//*/
+
+	//*/
+	trainer->update_coefficients(VVAL::Zero(dp_num));
+	DE de(
+		dp_num,
+		dp_num * 5,
+		30,
+		VVAL::Ones(dp_num) * 0.95,
+		-VVAL::Ones(dp_num) * 0.95,
+		100,
+		-100,
+		trainer); // from this test, it seems that pso has better performance than de in such case;
+	cout << "to run the optimizer" << endl;
+	de.run_opt();
+	cout << "current the loss is " << de.get_opt_obj() << endl;
+	cout << "dp is \n" << de.get_opt_dp() << endl;
+	trainer->update_coefficients(de.get_opt_dp());
+	cout << "test x:\n" << test_x << endl;
+	cout << "fx is\n" << trainer->feed_test(test_x) << endl;
+	//*/
+
 	delete trainer;
 /* part III:
 It's 124 design parameters

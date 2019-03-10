@@ -78,7 +78,8 @@ namespace TOOLS {
             return res / ((double)num);
         }
 
-        void update_coefficients(VVAL coef) {
+        void update_coefficients(const VVAL& coef) {
+        //void update_coefficients(VVAL coef) {
             m_net.update_coefficients(coef);
             m_st = m_net.status();
         }
@@ -92,7 +93,8 @@ namespace TOOLS {
             return m_net.evaluate();
         }
 
-        CalcStatus run(VVAL in, double& out) {
+        CalcStatus run(const VVAL& in, double& out) {
+        //CalcStatus run(VVAL in, double& out) {
             CalcStatus st = Normal;
             update_coefficients(in);
             out = l2_loss();

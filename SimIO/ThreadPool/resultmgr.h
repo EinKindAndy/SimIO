@@ -21,7 +21,8 @@ namespace TP {
     class Runnable {
     public:
         Runnable() {}
-        virtual CalcStatus run(IN in, OUT& out) {
+        virtual CalcStatus run(const IN& in, OUT& out) { // const reference
+        //virtual CalcStatus run(IN in, OUT& out) { // copy waste
             CalcStatus st = Normal;
             return st;
         }

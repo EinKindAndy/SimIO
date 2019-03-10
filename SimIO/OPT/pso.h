@@ -8,8 +8,6 @@
  * 
  */
 
-
-#include <algorithm>
 #include "../cg"
 #include "optbase.h"
 
@@ -67,7 +65,6 @@ namespace OPT {
             return (this->m_dp_lower) + tmp_;
         }
         void init() {
-            //cout << "init..." << endl;
             double k = 0.5;
             for(auto i = 0; i < this->m_pop_size; i++) {
                 MovingPoint* mp = new MovingPoint;
@@ -75,8 +72,6 @@ namespace OPT {
                 mp->cur_vel = VVAL::Random(this->m_dp_size).array() * ((this->m_dp_upper - this->m_dp_lower) * k).array();
                 mp->local_best_pos = get_rand_dp();
                 m_particles[i] = mp;
-                //cout << "cur_pos\n" << mp->cur_pos << endl;
-                //cout << "pre_pos\n" << mp->local_best_pos << endl;
             }
         }
 
@@ -94,7 +89,7 @@ namespace OPT {
                     }
                     if(pobj < global_obj) {
                         m_best_position = m_particles[i]->local_best_pos;
-                        global_obj = cobj;
+                        global_obj = pobj;
                     }
                 }
 
@@ -105,8 +100,6 @@ namespace OPT {
                     m_c1 * m_distribution(m_rand_gen) * (m_particles[i]->local_best_pos - m_particles[i]->cur_pos) +
                     m_c2 * m_distribution(m_rand_gen) * (m_best_position - m_particles[i]->cur_pos));
                     m_particles[i]->cur_pos = m_particles[i]->cur_pos + m_particles[i]->cur_vel;
-                    //cout << "cur_pos\n" << m_particles[i]->cur_pos << endl;
-                    //cout << "pre_pos\n" << m_particles[i]->local_best_pos << endl;
                 }
             }
             this->m_best_dp = m_best_position;

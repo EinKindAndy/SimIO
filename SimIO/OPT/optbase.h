@@ -14,6 +14,7 @@
 #include <chrono>
 #include <random>
 #include <ctime>
+#include <algorithm>
 
 using namespace SIMIO::CG;
 using namespace SIMIO::TP;

@@ -83,7 +83,8 @@ namespace NN {
             return m_layers[m_layer_num - 1]->result();
         }
 
-        void update_coefficients(VVAL coef) {
+        void update_coefficients(const VVAL& coef) {
+        //void update_coefficients(VVAL coef) {
             if(coef.size() != m_coefficient_num) { m_st.state = false; return; }
             ullint it = 0;
             for(auto i = 0; i < m_coefficients.size(); i++)
